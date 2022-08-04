@@ -5,75 +5,60 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 using TechTalk.SpecFlow;
+using AmazonProject.Drivers;
 
 namespace AmazonProject.StepDefinition
 {
     [Binding]
-    public class HomepageSteps
+    public class HomepageSteps :StepDefinitionBase
     {
-        private DriverHelper _driverHelper;
-        Homepage homePage;
+        private BrowserInstance _browserInstance;
 
-        public HomepageSteps(DriverHelper driverHelper)
-        {
-            _driverHelper = driverHelper;
-            homePage = new Homepage(_driverHelper.Driver);
+        public HomepageSteps(BrowserInstance browserInstance) : base(browserInstance)
+        { 
+            _browserInstance = browserInstance;
         }
-
+            
 
         [Given(@"Navigate to amazon url")]
         public void GivenNavigateToAmazonUrl()
         {
-            _driverHelper.Driver.Navigate().GoToUrl("https://www.amazon.in/");
+            Homepage.NavigateToAmazon();
         }
 
         [When(@"Search for a text (.*)")]
         public void WhenSearchForAText(string searchText)
         {
-            homePage.EnterSearchText(searchText);
+            Homepage.EnterSearchText(searchText);
             Thread.Sleep(2000);
         }
 
         [Then(@"user click on the Search button")]
         public void ThenUserClickOnTheSearchButton()
         {
-            homePage.ClickSearchButton();
+            Homepage.ClickSearchButton();
         }
 
         [Then(@"user should be able to see the reuslts for the  (.*)")]
         public void ThenUserShouldBeAbleToSeeTheReusltsForThe(string searchText)
         {
-            Assert.AreEqual(searchText, homePage.VerifySearchResult());
+            Assert.AreEqual(searchText, Homepage.VerifySearchResult());
         }
 
         [Then(@"user should be able to select each value present in search dropdown")]
         public void ThenUserShouldBeAbleToSelectEachValuePresentInSearchDropdown()
-        {
-            Assert.IsTrue(homePage.SelectValueFromDropdown().Contains(homePage.VerifySelectedValue()));
-        }
-        [When(@"Click on the sign in link")]
-        public void WhenClickOnTheSignInLink()
-        {
-            homePage.ClickLoginLink();
-            Thread.Sleep(3000);
-        }
-        [Then(@"user should be able to view the sign in text")]
-        public void ThenUserShouldBeAbleToViewTheSignInText()
-        {
-            Assert.That("Sign-In", Is.EqualTo(homePage.VerifySignInText()));
-            Thread.Sleep(5000);
-
+        {                         
+                Assert.IsTrue(Homepage.SelectValueFromDropdown().Contains(Homepage.VerifySelectedValue()));            
         }
 
         [Given(@"amazon homepage toolbar contains the following values")]
         public void GivenAmazonHomepageToolbarContainsTheFollowingValues(Table table)
         {
-            _driverHelper.Driver.Navigate().GoToUrl("https://www.amazon.in/");
             foreach (TableRow row in table.Rows)
             {
                 foreach (String value in row.Values)
-                {
-                    Assert.IsTrue(homePage.VerifyToolbar().Contains(value));
+                {                  
+                       Assert.IsTrue(Homepage.VerifyToolbar().Contains(value));                    
                 }
             }
         }
@@ -81,7 +66,7 @@ namespace AmazonProject.StepDefinition
         [When(@"user click on AmazonPay")]
         public void WhenUserClickOnAmazonPay()
         {
-            homePage.ClickAmazonPay();
+            Homepage.ClickAmazonPay();
         }
 
         [Then(@"user should see be able the following header values")]
@@ -91,12 +76,25 @@ namespace AmazonProject.StepDefinition
             {
                 foreach (String value in row.Values)
                 {
-                    Assert.IsTrue(homePage.VerifyAmazonPayHeader().Contains(value));
+                    Assert.IsTrue(Homepage.VerifyAmazonPayHeader().Contains(value));
                 }
             }
         }
 
+        public override string ToString()
+        {
+            return base.ToString();
+        }
 
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj);
+        }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
-}
+    }
+

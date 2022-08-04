@@ -2,23 +2,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using AmazonProject.Drivers;
 
 namespace AmazonProject.PageObjects
 {
      public class CreateAccountPage
     {
-        private IWebDriver Driver;
-        public CreateAccountPage(IWebDriver driver)
+        private IWebDriver _driver;
+        private BrowserInstance _browserInstance;
+        public CreateAccountPage(BrowserInstance browserInstance)
         {
-            Driver = driver;
+            _driver = browserInstance.Driver();
+            _browserInstance = browserInstance;
         }
 
-        IWebElement fullName => Driver.FindElement(By.Id("ap_customer_name"));
-        IWebElement mobileNumber => Driver.FindElement(By.Id("ap_phone_number"));
-        IWebElement email => Driver.FindElement(By.Id("ap_email"));
+        IWebElement fullName => _driver.FindElement(By.Id("ap_customer_name"));
+        IWebElement mobileNumber => _driver.FindElement(By.Id("ap_phone_number"));
+        IWebElement email => _driver.FindElement(By.Id("ap_email"));
 
-        IWebElement password => Driver.FindElement(By.Id("ap_password"));
-        IWebElement continuePage => Driver.FindElement(By.Id("continue"));
+        IWebElement password => _driver.FindElement(By.Id("ap_password"));
+        IWebElement continuePage => _driver.FindElement(By.Id("continue"));
 
         public void EnterFullName(String fullname) => fullName.SendKeys(fullname);
 
@@ -32,8 +35,6 @@ namespace AmazonProject.PageObjects
          
         public void EnterPassword(String pass) => password.SendKeys(pass);
         public void ClickContinue() => continuePage.Click();
-
-        //public void ClickEmail() => email.Click();
 
     }
 }

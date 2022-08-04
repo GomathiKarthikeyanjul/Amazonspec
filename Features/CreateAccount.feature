@@ -1,7 +1,7 @@
 ﻿Feature: CreateAccount
 	Create amazon account
 
-	 @mytag
+	 @Tag1
 	 @DataSource:CustomerDetails.xlsx
 Scenario: Create second account of amazon using excel
 	Given Navigate to amazon url

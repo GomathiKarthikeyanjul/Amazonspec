@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<TestProfile xmlns="http://www.specflow.org/schemas/plus/TestProfile/1.5">
+	<Settings projectName="AmazonProject" projectId="{3930AC26-9329-4D52-9199-4F7966525ABA}" />
+	
+	<Execution stopAfterFailures="3" testThreadCount="5" testSchedulingMode="Random" retryCount="1" apartmentState="MTA"  />
+	<Environment testThreadIsolation="Process" platform="x64"/>
+	<TestAssemblyPaths>
+		<TestAssemblyPath>AmazonProject.dll</TestAssemblyPath>
+	</TestAssemblyPaths>
+	<Report>
+		<Template name="Report\ReportTemplate.cshtml" outputName="Report{now:yyyyMMddHHmmss}.html" />
+		<Template name="Report\ReportTemplate_Xml.cshtml" outputName="Report{now:yyyyMMddHHmmss}_Xml.xml" />
+	</Report>
+
+	<Targets>
+		<Target name="Chrome-COM">
+			  <Filter>@Tag2</Filter>
+			<DeploymentTransformationSteps>
+				<EnvironmentVariable variable="Test_Browser" value="Chrome" />
+				<EnvironmentVariable variable="__BaseUrl" value="https://www.amazon.in/" />
+				<EnvironmentVariable variable="Env" value="Test" />
+			</DeploymentTransformationSteps>
+		</Target>
+		<Target name="Chrome-COM">
+			<Filter>@Tag1</Filter>
+			<DeploymentTransformationSteps>
+				<EnvironmentVariable variable="Test_Browser" value="Chrome" />
+				<EnvironmentVariable variable="__BaseUrl" value="https://www.amazon.in/" />
+				<EnvironmentVariable variable="Env" value="Test" />
+			</DeploymentTransformationSteps>
+		</Target>
+	</Targets>
+</TestProfile>

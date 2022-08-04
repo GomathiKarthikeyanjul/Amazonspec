@@ -19,8 +19,7 @@ namespace AmazonProject.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("CreateAccount")]
+    [TechTalk.SpecRun.FeatureAttribute("CreateAccount", Description="\tCreate amazon account", SourceFile="Features\\CreateAccount.feature", SourceLine=0)]
     public partial class CreateAccountFeature
     {
         
@@ -31,7 +30,7 @@ namespace AmazonProject.Features
 #line 1 "CreateAccount.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
@@ -39,19 +38,18 @@ namespace AmazonProject.Features
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -60,7 +58,6 @@ namespace AmazonProject.Features
         public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
         public void ScenarioStart()
@@ -73,16 +70,10 @@ namespace AmazonProject.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create second account of amazon using excel")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.CategoryAttribute("DataSource:CustomerDetails.xlsx")]
-        [NUnit.Framework.TestCaseAttribute("Gomathi Karthikeyan", "8939364101", "Gomathi@123", null)]
-        [NUnit.Framework.TestCaseAttribute("Karthik Kumar", "9840819335", "Karthik@123", null)]
-        public void CreateSecondAccountOfAmazonUsingExcel(string fullName, string mobile, string password, string[] exampleTags)
+        public virtual void CreateSecondAccountOfAmazonUsingExcel(string fullName, string mobile, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag",
+                    "Tag1",
                     "DataSource:CustomerDetails.xlsx"};
             if ((exampleTags != null))
             {
@@ -133,6 +124,26 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
             }
             this.ScenarioCleanup();
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Create second account of amazon using excel, ExternalExamples, Anubhooti Tyagi", new string[] {
+                "Tag1",
+                "DataSource:CustomerDetails.xlsx"})]
+        public void CreateSecondAccountOfAmazonUsingExcel_ExternalExamples_AnubhootiTyagi()
+        {
+#line 6
+this.CreateSecondAccountOfAmazonUsingExcel("Anubhooti Tyagi", "9734567899", "Anu123456!", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Create second account of amazon using excel, ExternalExamples, Rahul Tyagi", new string[] {
+                "Tag1",
+                "DataSource:CustomerDetails.xlsx"})]
+        public void CreateSecondAccountOfAmazonUsingExcel_ExternalExamples_RahulTyagi()
+        {
+#line 6
+this.CreateSecondAccountOfAmazonUsingExcel("Rahul Tyagi", "9734567889", "Rah123456!", ((string[])(null)));
+#line hidden
         }
     }
 }
