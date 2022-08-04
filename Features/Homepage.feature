@@ -1,11 +1,11 @@
 ﻿Feature: Homepage
 	Homepage for amazon
-Feature: Homepage
-	Homepage for amazon
 
-	@mytag
-Scenario Outline: Search for different items 
+	Background:
 	Given Navigate to amazon url
+
+	@Tag1
+Scenario Outline: Search for different items 	
 	When Search for a text <Search Text>
 	Then user click on the Search button
 	And user should be able to see the reuslts for the  <Search Text>
@@ -23,12 +23,11 @@ Scenario Outline: Search for different items
 	| Basketball  |
 
 
-	@mytag
+	@Tag2
 Scenario: Navigate through all the values present in Search dropdown
-	Given Navigate to amazon url
 	Then user should be able to select each value present in search dropdown
-	
-	@mytag
+
+	@Tag2
 Scenario: Navigate to Amazon Pay and verify it contains the various optins or not
 	Given amazon homepage toolbar contains the following values 
 	| Toolbar Values  |
@@ -48,4 +47,5 @@ Scenario: Navigate to Amazon Pay and verify it contains the various optins or no
 	| Gift Cards & Vouchers |
 	
 	
-
+	
+	

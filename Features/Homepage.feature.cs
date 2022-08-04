@@ -19,8 +19,7 @@ namespace AmazonProject.Features
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Homepage")]
+    [TechTalk.SpecRun.FeatureAttribute("Homepage", Description="\tHomepage for amazon", SourceFile="Features\\Homepage.feature", SourceLine=0)]
     public partial class HomepageFeature
     {
         
@@ -31,27 +30,26 @@ namespace AmazonProject.Features
 #line 1 "Homepage.feature"
 #line hidden
         
-        [NUnit.Framework.OneTimeSetUpAttribute()]
+        [TechTalk.SpecRun.FeatureInitialize()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Homepage", "\tHomepage for amazon\r\nFeature: Homepage\r\n\tHomepage for amazon", ProgrammingLanguage.CSharp, featureTags);
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Homepage", "\tHomepage for amazon", ProgrammingLanguage.CSharp, featureTags);
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [NUnit.Framework.OneTimeTearDownAttribute()]
+        [TechTalk.SpecRun.FeatureCleanup()]
         public virtual void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
-        [NUnit.Framework.SetUpAttribute()]
         public void TestInitialize()
         {
         }
         
-        [NUnit.Framework.TearDownAttribute()]
+        [TechTalk.SpecRun.ScenarioCleanup()]
         public void TestTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -60,7 +58,6 @@ namespace AmazonProject.Features
         public void ScenarioInitialize(TechTalk.SpecFlow.ScenarioInfo scenarioInfo)
         {
             testRunner.OnScenarioInitialize(scenarioInfo);
-            testRunner.ScenarioContext.ScenarioContainer.RegisterInstanceAs<NUnit.Framework.TestContext>(NUnit.Framework.TestContext.CurrentContext);
         }
         
         public void ScenarioStart()
@@ -73,22 +70,19 @@ namespace AmazonProject.Features
             testRunner.CollectScenarioErrors();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search for different items")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
-        [NUnit.Framework.TestCaseAttribute("Badminton", null)]
-        [NUnit.Framework.TestCaseAttribute("Mobile", null)]
-        [NUnit.Framework.TestCaseAttribute("Wardrobe", null)]
-        [NUnit.Framework.TestCaseAttribute("Clothes", null)]
-        [NUnit.Framework.TestCaseAttribute("Toys", null)]
-        [NUnit.Framework.TestCaseAttribute("Camera", null)]
-        [NUnit.Framework.TestCaseAttribute("jewellery", null)]
-        [NUnit.Framework.TestCaseAttribute("Laptop", null)]
-        [NUnit.Framework.TestCaseAttribute("Basketball", null)]
-        public void SearchForDifferentItems(string searchText, string[] exampleTags)
+        public virtual void FeatureBackground()
+        {
+#line 4
+ #line hidden
+#line 5
+ testRunner.Given("Navigate to amazon url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
+        public virtual void SearchForDifferentItems(string searchText, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag"};
+                    "Tag1"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -97,7 +91,7 @@ namespace AmazonProject.Features
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             argumentsOfScenario.Add("Search Text", searchText);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for different items", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 7
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -107,8 +101,8 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 8
- testRunner.Given("Navigate to amazon url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 4
+ this.FeatureBackground();
 #line hidden
 #line 9
  testRunner.When(string.Format("Search for a text {0}", searchText), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -123,13 +117,93 @@ this.ScenarioInitialize(scenarioInfo);
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate through all the values present in Search dropdown")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Badminton", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Badminton()
+        {
+#line 8
+this.SearchForDifferentItems("Badminton", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Mobile", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Mobile()
+        {
+#line 8
+this.SearchForDifferentItems("Mobile", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Wardrobe", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Wardrobe()
+        {
+#line 8
+this.SearchForDifferentItems("Wardrobe", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Clothes", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Clothes()
+        {
+#line 8
+this.SearchForDifferentItems("Clothes", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Toys", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Toys()
+        {
+#line 8
+this.SearchForDifferentItems("Toys", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Camera", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Camera()
+        {
+#line 8
+this.SearchForDifferentItems("Camera", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, jewellery", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Jewellery()
+        {
+#line 8
+this.SearchForDifferentItems("jewellery", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Laptop", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Laptop()
+        {
+#line 8
+this.SearchForDifferentItems("Laptop", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Search for different items, Basketball", new string[] {
+                "Tag1"}, SourceLine=14)]
+        public void SearchForDifferentItems_Basketball()
+        {
+#line 8
+this.SearchForDifferentItems("Basketball", ((string[])(null)));
+#line hidden
+        }
+        
+        [TechTalk.SpecRun.ScenarioAttribute("Navigate through all the values present in Search dropdown", new string[] {
+                "Tag2"}, SourceLine=26)]
         public void NavigateThroughAllTheValuesPresentInSearchDropdown()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "Tag2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate through all the values present in Search dropdown", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 27
@@ -142,26 +216,25 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 28
- testRunner.Given("Navigate to amazon url", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 4
+ this.FeatureBackground();
 #line hidden
-#line 29
+#line 28
  testRunner.Then("user should be able to select each value present in search dropdown", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Navigate to Amazon Pay and verify it contains the various optins or not")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [TechTalk.SpecRun.ScenarioAttribute("Navigate to Amazon Pay and verify it contains the various optins or not", new string[] {
+                "Tag2"}, SourceLine=30)]
         public void NavigateToAmazonPayAndVerifyItContainsTheVariousOptinsOrNot()
         {
             string[] tagsOfScenario = new string[] {
-                    "mytag"};
+                    "Tag2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Navigate to Amazon Pay and verify it contains the various optins or not", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 32
+#line 31
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -171,6 +244,9 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+#line 4
+ this.FeatureBackground();
+#line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Toolbar Values"});
                 table1.AddRow(new string[] {
@@ -187,10 +263,10 @@ this.ScenarioInitialize(scenarioInfo);
                             "Electronics"});
                 table1.AddRow(new string[] {
                             "Amazon Pay"});
-#line 33
+#line 32
  testRunner.Given("amazon homepage toolbar contains the following values", ((string)(null)), table1, "Given ");
 #line hidden
-#line 42
+#line 41
  testRunner.When("user click on AmazonPay", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
                 TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -203,7 +279,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "Rewards"});
                 table2.AddRow(new string[] {
                             "Gift Cards & Vouchers"});
-#line 43
+#line 42
  testRunner.Then("user should see be able the following header values", ((string)(null)), table2, "Then ");
 #line hidden
             }
